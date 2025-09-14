@@ -6,4 +6,4 @@ shapely
 streamlit_folium
 seaborn  
 matplotlib
-
+base64

@@ -126,15 +126,20 @@ with col3:
         ).add_to(m)
 
 
-    #m
-
-
     # Render map in Streamlit
 
     st_data = st_folium(m, width=800, height=600)
 
 with col4:
-    st.html("<img src='./pics/hm_months.gif' alt='animated gif'>")
+    import base64
+
+    with open("./pics/hm_months.gif", "rb") as f:
+        data = base64.b64encode(f.read()).decode()
+
+    st.markdown(
+        f'<img src="data:image/gif;base64,{data}" alt="animated gif">',
+        unsafe_allow_html=True
+    )
 
 # Display notice
 st.markdown( "**Important Notice:** Use of this data restricted for educational purposes within this course only." )
