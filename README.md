@@ -26,5 +26,9 @@ This Streamlit app enables interactive exploration by allowing users to select a
 Besides the effect Thursday / Friday, would the meteorologic conditions affect accidents? Would the hourly distribution be different in December / January (winter) and July / August (Summer)? 
 
 
+## Deployment
+
+This project is to be acessible through [render](https://www.onrender.com), at [https://aim4m-pcp.onrender.com](https://aim4m-pcp.onrender.com)
+
 Maia, September 2025
 Pedro Pimenta
