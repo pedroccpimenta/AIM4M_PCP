@@ -5,6 +5,7 @@ import folium
 from shapely.geometry import Point
 from streamlit_folium import st_folium
 from folium.plugins import HeatMap
+import pybase64
 
 import seaborn as sns
 
@@ -131,15 +132,19 @@ with col3:
     st_data = st_folium(m, width=800, height=600)
 
 with col4:
-    import base64
-
     with open("./pics/hm_months.gif", "rb") as f:
-        data = base64.b64encode(f.read()).decode()
+        data = pybase64.b64encode(f.read()).decode()
 
-    st.markdown(
-        f'<img src="data:image/gif;base64,{data}" alt="animated gif">',
-        unsafe_allow_html=True
-    )
+    if False: 
+        st.markdown(
+            f'<img src="data:image/gif;base64,{data}" alt="animated gif">',
+            unsafe_allow_html=True
+        )
+    
+    st.markdown("Next image is an animated GIF showing the heatmap across the months of 2023.")
+    st.html (f"<table border=2 style='width:95%'><tr><td><img src='data:image/gif;base64,{data}' style='width:95%' alt='animated gif'>")
+
+
 
 # Display notice
 st.markdown( "**Important Notice:** Use of this data restricted for educational purposes within this course only." )
