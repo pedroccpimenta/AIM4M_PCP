@@ -77,6 +77,9 @@ st.html("Explore how accident locations change throughout the year.<br>"
         " The visualization combines density heatmaps (showing concentration patterns) with individual points (exact locations) for complete spatial insight."
     )
 
+
+col3, col4 = st.columns(2)
+
 # Create dropdown
 selected_value = st.selectbox(
     "Select one month:",
@@ -124,7 +127,12 @@ for _, row in gdf.iterrows():
 
 
 # Render map in Streamlit
-st_data = st_folium(m, width=800, height=600)
+
+with col3:
+    st_data = st_folium(m, width=800, height=600)
+
+with col4:
+    st.html("<img src='./pics/hm_months.gif'>")
 
 # Display notice
 st.markdown( "**Important Notice:** Use of this data restricted for educational purposes within this course only." )
