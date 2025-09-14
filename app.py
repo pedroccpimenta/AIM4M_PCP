@@ -80,64 +80,68 @@ st.html("Explore how accident locations change throughout the year.<br>"
 
 col3, col4 = st.columns(2)
 
-# Create dropdown
-selected_value = st.selectbox(
-    "Select one month:",
-    options=df['month'].unique(),  # Replace with your column name
-    index=0
-)
-
-filtered_df = df[df['month'] == selected_value]
-
-
-# Convert to GeoDataFrame
-gdf = gpd.GeoDataFrame(
-    filtered_df,
-    geometry=[Point(xy) for xy in zip(filtered_df.longitude, filtered_df.latitude)],
-    crs="EPSG:4326"
-)
-
-# Create base map centered on Lisbon
-center = [gdf["latitude"].mean(), gdf["longitude"].mean()]
-m = folium.Map(location=center, zoom_start=12, tiles="CartoDB Positron")
-
-
-# Prepare heatmap points
-heat_data = [[row['latitude'], row['longitude']] for _, row in filtered_df.iterrows()]
-
-# Create and center map
-center = [filtered_df['latitude'].mean(), filtered_df['longitude'].mean()]
-m = folium.Map(location=center, zoom_start=12, tiles='CartoDB Positron')
-HeatMap(heat_data, radius=12).add_to(m)
-
-
-# Add accident points
-for _, row in gdf.iterrows():
-    folium.CircleMarker(
-        location=[row["latitude"], row["longitude"]],
-        radius=4,
-        color="red",
-        fill=True,
-        fill_opacity=0.6,
-        popup=f"ID: {row['id']}<br>Hour: {row['hour']}<br>Fatalities: {row['fatalities_30d']}"
-    ).add_to(m)
-
-
-#m
-
-
-# Render map in Streamlit
 
 with col3:
+
+    # Create dropdown
+    selected_value = st.selectbox(
+        "Select one month:",
+                options=df['month'].unique(),  # Replace with your column name
+                index=0
+        )
+
+    filtered_df = df[df['month'] == selected_value]
+
+
+    # Convert to GeoDataFrame
+    gdf = gpd.GeoDataFrame(
+        filtered_df,
+        geometry=[Point(xy) for xy in zip(filtered_df.longitude, filtered_df.latitude)],
+        crs="EPSG:4326"
+    )
+
+    # Create base map centered on Lisbon
+    center = [gdf["latitude"].mean(), gdf["longitude"].mean()]
+    m = folium.Map(location=center, zoom_start=12, tiles="CartoDB Positron")
+
+
+    # Prepare heatmap points
+    heat_data = [[row['latitude'], row['longitude']] for _, row in filtered_df.iterrows()]
+
+    # Create and center map
+    center = [filtered_df['latitude'].mean(), filtered_df['longitude'].mean()]
+    m = folium.Map(location=center, zoom_start=12, tiles='CartoDB Positron')
+    HeatMap(heat_data, radius=12).add_to(m)
+
+
+    # Add accident points
+    for _, row in gdf.iterrows():
+        folium.CircleMarker(
+            location=[row["latitude"], row["longitude"]],
+            radius=4,
+            color="red",
+            fill=True,
+            fill_opacity=0.6,
+            popup=f"ID: {row['id']}<br>Hour: {row['hour']}<br>Fatalities: {row['fatalities_30d']}"
+        ).add_to(m)
+
+
+    #m
+
+
+    # Render map in Streamlit
+
     st_data = st_folium(m, width=800, height=600)
 
 with col4:
-    st.html("<img src='./pics/hm_months.gif'>")
+    st.html("<img src='./pics/hm_months.gif' alt='animated gif'>")
 
 # Display notice
 st.markdown( "**Important Notice:** Use of this data restricted for educational purposes within this course only." )
 
 st.html( 
-"<hr color=lime><i>Maia, Setembro 2025<br>Pedro Pimenta (<a href='https://www.linkedin.com/in/pedropimenta/' target='_'>https://www.linkedin.com/in/pedropimenta/</a>)"
+"<hr color=lime>"
+"full code available "
+"<i>Maia, Setembro 2025<br>Pedro Pimenta (<a href='https://www.linkedin.com/in/pedropimenta/' target='_'>https://www.linkedin.com/in/pedropimenta/</a>)"
 "<hr color=lime>"
 )

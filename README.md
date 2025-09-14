@@ -1,7 +1,7 @@
 # AIM4M Tools and Techniques for Geospatial visualization
 
 ## Summary
-This capstone project demonstrates the practical application of geospatial visualization techniques learned through the "Tools and Techniques for Geospatial ML - AIM4Mobility" program at Factual Academy.
+This capstone project demonstrates the practical application of geospatial visualization techniques learned through the "[Tools and Techniques for Geospatial ML - AIM4Mobility](https://factual-academy.com/bundle/aim4mobility)" program at [Factual Academy](https://factual-academy.com/).
 
 ## Foreword
 This analysis investigates several key questions related to the distribution and characteristics of reported accidents throughout the year:
