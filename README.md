@@ -28,7 +28,10 @@ Besides the effect Thursday / Friday, would the meteorologic conditions affect a
 
 ## Deployment
 
-This project is to be acessible through [render](https://www.render.com), at [https://aim4m-pcp.onrender.com](https://aim4m-pcp.onrender.com)
+This project is to be acessible through:
+1. [render](https://www.render.com), at [https://aim4m-pcp.onrender.com](https://aim4m-pcp.onrender.com)
+2. [streamlit](https://streamlit.app), at [https://aim4mpcp.streamlit.app/](https://aim4mpcp.streamlit.app/)
+
 
 Maia, September 2025
 Pedro Pimenta

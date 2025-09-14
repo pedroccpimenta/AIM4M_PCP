@@ -151,7 +151,7 @@ st.markdown( "**Important Notice:** Use of this data restricted for educational 
 
 st.html( 
 "<hr color=lime>"
-"full code available "
+"full code available at <a href='https://github.com/pedroccpimenta/AIM4M_PCP/' target='_'>https://github.com/pedroccpimenta/AIM4M_PCP/</a><br>"
 "<i>Maia, Setembro 2025<br>Pedro Pimenta (<a href='https://www.linkedin.com/in/pedropimenta/' target='_'>https://www.linkedin.com/in/pedropimenta/</a>)"
 "<hr color=lime>"
 )
